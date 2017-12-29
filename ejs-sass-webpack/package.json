@@ -7,7 +7,7 @@
     "watch:styles": "node-sass src/styles -o dist/styles -wr --source-map true --output-style expanded",
     "watch:scripts": "webpack -w",
     "watch:all": "npm run watch:public & npm run watch:ejs & npm run watch:styles & npm run watch:scripts",
-    "build:ejs": "ejs-cli -b src/ejs '*.ejs' -o dist",
+    "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
     "build:styles": "node-sass src/styles -o dist/styles --output-style compressed",
     "build:scripts": "NODE_ENV=production webpack",
     "build:all": "npm run build:ejs & npm run build:styles & npm run build:scripts",
