@@ -4,31 +4,15 @@ const path = require("path");
 
 // common config
 const common = {
-  entry: {
-    index: path.join(__dirname, "src/index.js")
-  },
+  entry: path.join(__dirname, "src/scripts/index.js"),
 
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "[name].js"
+    path: path.join(__dirname, "dist/scripts"),
+    filename: "index.js"
   },
 
   module: {
     rules: [
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader"
-          },
-          {
-            loader: "css-loader"
-          },
-          {
-            loader: "sass-loader"
-          }
-        ]
-      },
       {
         test: /\.js$/,
         loader: "babel-loader",

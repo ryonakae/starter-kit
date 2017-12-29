@@ -2,10 +2,19 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "cpx public/**/* dist",
-    "watch": "cpx public/**/* dist -vw & webpack -w & browser-sync start -c 'bs-config.js'",
-    "start": "npm run clean && npm run copy && npm run watch",
-    "build": "npm run clean && npm run copy && NODE_ENV=production webpack",
-    "format": "prettier './src/**/*' --write"
+    "watch:public": "cpx public/**/* dist -vw",
+    "watch:ejs": "",
+    "watch:styles": "node-sass src/styles -o dist/styles -wr --source-map true --output-style expanded",
+    "watch:scripts": "webpack -w",
+    "watch:all": "npm run watch:public & npm run watch:ejs & npm run watch:styles & npm run watch:scripts",
+    "build:ejs": "ejs-cli -b src/ejs '*.ejs' -o dist",
+    "build:styles": "node-sass src/styles -o dist/styles --output-style compressed",
+    "build:scripts": "NODE_ENV=production webpack",
+    "build:all": "npm run build:ejs & npm run build:styles & npm run build:scripts",
+    "server": "browser-sync start -c 'bs-config.js'",
+    "start": "npm run clean npm run copy && npm run watch:all & npm run server",
+    "build": "npm run clean npm run copy && npm run build:all",
+    "format": "prettier 'src/**/*.{js,scss}' --write"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0"
@@ -16,13 +25,11 @@
     "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.22.0",
     "cpx": "^1.5.0",
-    "css-loader": "^0.28.7",
+    "ejs-cli": "^2.0.0",
     "node-sass": "^4.7.2",
     "path": "^0.12.7",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.3",
     "webpack-hot-middleware": "^2.21.0",
