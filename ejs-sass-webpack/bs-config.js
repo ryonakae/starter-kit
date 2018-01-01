@@ -1,7 +1,7 @@
 const webpack = require("webpack");
-const webpackDevMiddleware = require("webpack-dev-middleware");
-const webpackHotMiddleware = require("webpack-hot-middleware");
-const webpackConfig = require("./webpack.config");
+const devMiddleware = require("webpack-dev-middleware");
+const hotMiddleware = require("webpack-hot-middleware");
+const config = require("./webpack.config");
 
 module.exports = {
   open: false,
@@ -10,17 +10,17 @@ module.exports = {
   reloadDelay: 300,
   ghostMode: false,
   server: {
-    baseDir: filePath.dist.root,
+    baseDir: 'dist',
     middleware: [
-      webpackDevMiddleware(webpackBundler, {
-        publicPath: webpackConfig.output.publicPath,
+      devMiddleware(webpack(config), {
+        publicPath: config.output.publicPath,
         // noInfo: true,
         // quiet: true,
         stats: {
           colors: true
         }
       }),
-      webpackHotMiddleware(webpackBundler)
+      hotMiddleware(webpack(config))
     ]
   }
 };
