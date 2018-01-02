@@ -1,6 +1,7 @@
 {
   "scripts": {
     "clean": "rimraf dist",
+    "mkdir": "mkdirp dist",
     "copy": "cpx 'public/**/*' dist",
     "server": "browser-sync start -c 'bs-config.js'",
     "watch:public": "cpx 'public/**/*' dist -vw --no-initial",
@@ -11,8 +12,8 @@
     "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
     "build:styles": "node-sass src/styles -o dist/styles --output-style compressed",
     "build:scripts": "NODE_ENV=production webpack",
-    "build": "run-s clean copy build:*",
-    "start": "run-s clean copy watch & npm run server",
+    "build": "run-s clean mkdir copy build:*",
+    "start": "run-s clean mkdir copy watch & npm run server",
     "format": "prettier 'src/**/*.{js,scss}' --write"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "browser-sync": "^2.22.0",
     "cpx": "^1.5.0",
     "ejs-cli": "^2.0.0",
+    "mkdirp": "^0.5.1",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "path": "^0.12.7",
