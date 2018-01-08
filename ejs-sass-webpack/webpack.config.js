@@ -5,12 +5,10 @@ const path = require("path");
 // common config
 const common = {
   entry: path.join(__dirname, "src/scripts/index.js"),
-
   output: {
     path: path.join(__dirname, "dist/scripts"),
     filename: "index.js"
   },
-
   module: {
     rules: [
       {
@@ -20,7 +18,6 @@ const common = {
       }
     ]
   },
-
   resolve: {
     alias: {
       "@": path.join(__dirname, "src/scripts")
@@ -30,12 +27,7 @@ const common = {
 
 // development config
 const dev = {
-  entry: ["webpack-hot-middleware/client?noinfo=true&quiet=true"],
-
-  output: {
-    publicPath: "/"
-  },
-
+  watch: true,
   plugins: [
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("development")
@@ -45,7 +37,6 @@ const dev = {
       debug: true
     })
   ],
-
   cache: true,
   devtool: "inline-source-map"
 };
