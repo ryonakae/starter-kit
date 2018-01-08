@@ -3,15 +3,17 @@
   "scripts": {
     "clean": "rimraf dist",
     "mkdir": "mkdirp dist",
-    "copy": "cpx 'public/**/*' dist",
+    "copy": "cpx 'public/**/*' dist -v",
     "server": "browser-sync start -c 'bs-config.js'",
     "watch:public": "cpx 'public/**/*' dist -vw --no-initial",
     "watch:ejs": "watch 'npm run build:ejs' src",
-    "watch:styles": "node-sass src/styles -o dist/styles -wr --source-map true --output-style expanded",
+    "watch:styles":
+      "node-sass src/styles -o dist/styles -wr --source-map true --output-style expanded",
     "watch:scripts": "webpack -w",
     "watch": "run-p watch:*",
     "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
-    "build:styles": "node-sass src/styles -o dist/styles --output-style compressed",
+    "build:styles":
+      "node-sass src/styles -o dist/styles --output-style compressed",
     "build:scripts": "NODE_ENV=production webpack",
     "build": "run-s clean mkdir copy build:*",
     "start": "run-s clean mkdir copy watch & npm run server",

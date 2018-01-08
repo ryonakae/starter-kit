@@ -10,7 +10,7 @@ module.exports = {
   reloadDelay: 300,
   ghostMode: false,
   server: {
-    baseDir: 'dist',
+    baseDir: "dist",
     middleware: [
       devMiddleware(webpack(config), {
         publicPath: config.output.publicPath,
