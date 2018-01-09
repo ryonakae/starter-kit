@@ -2,21 +2,25 @@
   "license": "Apache-2.0",
   "scripts": {
     "clean": "rimraf dist && mkdirp dist",
-    "copy:public": "cpx 'public/**/*' dist -v",
-    "watch:public": "chokidar 'public' -c 'npm run copy:public' --initial",
-    "watch:ejs": "chokidar 'src/**/*.ejs' -c 'npm run build:ejs' --initial",
-    "watch:sass":
-      "chokidar 'src/styles' -c 'node-sass src/styles -o dist/styles --source-map true --output-style expanded --importer node_modules/node-sass-import' --initial",
-    "watch:js": "webpack -w",
-    "watch": "run-p watch:* server",
-    "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
-    "build:sass":
-      "node-sass src/styles -o dist/styles --output-style compressed --importer node_modules/node-sass-import",
-    "build:js": "NODE_ENV=production webpack",
-    "build": "run-s clean copy:public build:*",
-    "start": "run-s clean watch",
+    "public": "cpx 'public/**/*' dist -v",
     "server":
       "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
+    "autoprefixer:watch":
+      "postcss dist/**/*.css -r -u autoprefixer --autoprefixer.browsers 'last 2 versions'",
+    "autoprefixer:build":
+      "postcss dist/**/*.css -r -u autoprefixer --autoprefixer.browsers 'last 2 versions' --no-map",
+    "watch:public": "chokidar 'public' -c 'npm run public'",
+    "watch:ejs": "chokidar 'src/**/*.ejs' -c 'npm run build:ejs' --initial",
+    "watch:sass":
+      "chokidar 'src/styles' -c 'node-sass src/styles -o dist/styles --output-style expanded --importer node_modules/node-sass-import && npm run autoprefixer:watch' --initial",
+    "watch:js": "webpack -w",
+    "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
+    "build:sass":
+      "node-sass src/styles -o dist/styles --output-style compressed --importer node_modules/node-sass-import && npm run autoprefixer:build",
+    "build:js": "NODE_ENV=production webpack",
+    "watch": "run-p watch:* server",
+    "start": "run-s clean public watch",
+    "build": "run-s clean public build:*",
     "format": "prettier 'src/**/*.{js,scss}' --write"
   },
   "dependencies": {
@@ -24,6 +28,7 @@
     "sanitize.css": "^5.0.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.2.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
@@ -36,6 +41,7 @@
     "node-sass-import": "^1.1.1",
     "npm-run-all": "^4.1.2",
     "path": "^0.12.7",
+    "postcss-cli": "^4.1.1",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
