@@ -1,8 +1,8 @@
 # Starter Kit
 
 * Simple and lightweight boilerplates
-* Local server and live reload
-* Code format by Prettier
+* Launch local server and live reload
+* Code format by Prettier (HTML, SCSS and JSON)
 
 ## Technologies
 
@@ -37,17 +37,17 @@ $ yarn install
 ### Develop
 
 ```
-$ npm start
+$ yarn start
 ```
 
 ### Production build
 
 ```
-$ npm run build
+$ yarn build
 ```
 
 ### Format
 
 ```
-$ npm run format
+$ yarn format
 ```
