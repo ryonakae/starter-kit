@@ -14,12 +14,12 @@
     "watch:public": "chokidar 'public' -c 'yarn public'",
     "watch:ejs": "chokidar 'src/**/*.ejs' -c 'yarn build:ejs' --initial",
     "watch:sass":
-      "chokidar 'src/styles' -c 'yarn sass -- --output-style expanded --source-map-embed && yarn autoprefixer' --initial",
+      "chokidar 'src/styles' -c 'yarn sass --output-style expanded --source-map-embed && yarn autoprefixer' --initial",
     "watch:js": "webpack -w",
 
     "build:ejs": "ejs-cli '*.ejs' -b src -o dist",
     "build:sass":
-      "yarn sass -- --output-style compressed && yarn autoprefixer -- --no-map",
+      "yarn sass --output-style compressed && yarn autoprefixer --no-map",
     "build:js": "NODE_ENV=production webpack",
 
     "watch": "run-p watch:* server",

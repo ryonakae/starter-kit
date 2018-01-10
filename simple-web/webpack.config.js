@@ -4,10 +4,12 @@ const path = require("path");
 
 // common config
 const common = {
-  entry: path.join(__dirname, "src/scripts/index.js"),
+  entry: {
+    index: path.join(__dirname, "src/scripts/index.js")
+  },
   output: {
-    path: path.join(__dirname, "dist/scripts"),
-    filename: "index.js"
+    filename: "[name].js",
+    path: path.join(__dirname, "dist/scripts")
   },
   module: {
     rules: [
@@ -22,7 +24,13 @@ const common = {
     alias: {
       "@": path.join(__dirname, "src/scripts")
     }
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: Infinity
+    })
+  ]
 };
 
 // development config
