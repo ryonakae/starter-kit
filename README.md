@@ -8,13 +8,11 @@
 
 ### simple-web
 
-* EJS
 * Sass (SCSS)
 * ES2015 (Webpack + Babel)
 
 ### vue
 
-* EJS
 * Vue (Webpack + Babel + vue-loader)
   * HTML
   * ES2015
