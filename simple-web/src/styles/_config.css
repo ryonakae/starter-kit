@@ -1,0 +1,40 @@
+:root {
+  --duration: 500ms;
+  --easing: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --clearfix: {
+    &::after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+
+  --hide-text: {
+    text-indent: 101%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  --transition: {
+    transition: all var(--duration) var(--easing);
+  }
+
+  --link: {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: underline;
+    @apply --transition;
+
+    @nest body[data-device="pc"] &:hover {
+      text-decoration: none;
+      opacity: 0.7;
+    }
+  }
+
+  @custom-media --mq-retina only screen and (-webkit-min-device-pixel-ratio: 1.5),
+    only screen and (min--moz-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 1.5/1),
+    only screen and (min-resolution: 144dpi),
+    only screen and (min-resolution: 1.5dppx);
+}

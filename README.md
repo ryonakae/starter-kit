@@ -8,15 +8,15 @@
 
 ### simple-web
 
-* Sass (SCSS)
-* ES2015 (Webpack + Babel)
+* HTML
+* JS: ES2015 (Webpack + Babel)
+* CSS: PostCSS (import, cssnext, cssnano)
 
-### vue
+### spa-vue
 
 * Vue (Webpack + Babel + vue-loader)
-  * HTML
-  * ES2015
-  * Sass (SCSS)
+  * JS: ES2015
+  * CSS: PostCSS (import, cssnext, cssnano)
 
 ## Install
 

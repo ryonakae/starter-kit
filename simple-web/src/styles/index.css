@@ -1,12 +1,12 @@
 @import "sanitize.css";
-@import "_config";
+@import "_config.css";
 
-// common style
 html {
   font-size: 62.5%;
 }
 
 body {
+  background-color: #fff;
   font-kerning: normal;
   font-feature-settings: "palt" on;
   word-wrap: break-word;
@@ -15,12 +15,12 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: unset;
 
-  @include mq($mq_retina) {
+  @media (--mq-retina) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
 
 a {
-  @extend %link;
+  @apply --link;
 }

@@ -5,16 +5,11 @@
     "public": "cpx 'public/**/{*,.*}' dist -u",
     "server":
       "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
-    "sass":
-      "node-sass src/styles -o dist/styles --importer node_modules/node-sass-import",
-    "autoprefixer":
-      "postcss dist/**/*.css -u autoprefixer --autoprefixer.browsers 'last 2 versions' -r",
+    "css": "postcss 'src/styles/**/!(_)*.css' -d dist/styles",
     "watch:public": "chokidar 'public' -c 'yarn public'",
-    "watch:sass":
-      "chokidar 'src/styles' -c 'yarn sass --output-style expanded --source-map-embed && yarn autoprefixer' --initial",
+    "watch:css": "yarn css -w",
     "watch:js": "webpack -w",
-    "build:sass":
-      "yarn sass --output-style compressed && yarn autoprefixer --no-map",
+    "build:css": "NODE_ENV=production yarn css",
     "build:js": "NODE_ENV=production webpack",
     "watch": "run-p watch:* server",
     "start": "run-s clean public watch",
@@ -22,22 +17,23 @@
     "format": "prettier 'src/**/*.{js,scss}' --write"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "web-utility-js": "^0.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.38",
     "@babel/preset-env": "^7.0.0-beta.38",
-    "autoprefixer": "^7.2.4",
     "babel-loader": "8.0.0-beta.0",
     "browser-sync": "^2.22.0",
     "chokidar-cli": "^1.2.0",
     "cpx": "^1.5.0",
-    "node-sass": "^4.7.2",
-    "node-sass-import": "^1.1.1",
+    "cssnano": "^3.10.0",
+    "cssnano-preset-default": "^4.0.0-rc.2",
     "npm-run-all": "^4.1.2",
     "path": "^0.12.7",
     "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.0.0",
     "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",

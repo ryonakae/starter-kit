@@ -4,9 +4,12 @@ const path = require("path");
 
 // common config
 const common = {
-  entry: path.join(__dirname, "src/scripts/index.js"),
+  entry: {
+    vendor: ["web-utility-js"],
+    index: path.join(__dirname, "src/scripts/index.js")
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     path: path.join(__dirname, "dist/scripts")
   },
   module: {
@@ -22,7 +25,13 @@ const common = {
     alias: {
       "@": path.join(__dirname, "src/scripts")
     }
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: Infinity
+    })
+  ]
 };
 
 // development config
@@ -60,7 +69,6 @@ const prod = {
   ]
 };
 
-// exports
 module.exports = merge(
   common,
   process.env.NODE_ENV === "production" ? prod : dev
