@@ -3,7 +3,7 @@ const options = {
     path: "src/styles"
   },
   cssnext: {
-    browsers: ["last 2 versions", "ie >= 11", "iOS >= 10", "Android >= 4.4"],
+    browsers: ["last 2 versions", "ie > 11", "iOS >= 11", "Android >= 5.0"],
     cascade: false
   },
   cssnano: {
