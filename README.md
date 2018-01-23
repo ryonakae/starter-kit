@@ -2,7 +2,9 @@
 
 * Simple and lightweight boilerplates
 * Launch local server and live reload
-* Code format by Prettier (HTML, SCSS and JSON)
+* Code format by Prettier
+  * JS: prettier-eslint (eslint-config-standard)
+  * CSS: prettier-stylelint (stylelint-config-standard)
 
 ## Technologies
 

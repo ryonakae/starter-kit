@@ -24,6 +24,7 @@
     cursor: pointer;
     color: inherit;
     text-decoration: underline;
+
     @apply --transition;
 
     @nest body[data-device="pc"] &:hover {

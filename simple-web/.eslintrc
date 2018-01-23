@@ -1,0 +1,12 @@
+{
+  "extends": "standard",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "prefer-promise-reject-errors": "warn"
+  }
+}
