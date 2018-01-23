@@ -1566,22 +1566,30 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ejs-cli@ryonakae/ejs-cli#master:
+ejs-cli@^2.0.0:
   version "2.0.0"
-  resolved "https://codeload.github.com/ryonakae/ejs-cli/tar.gz/ada65934857801471e65688cb2f01b56eefa6b50"
+  resolved "https://registry.yarnpkg.com/ejs-cli/-/ejs-cli-2.0.0.tgz#ee4dd3a355102107ef0b29a445ca1bee9f868bf2"
   dependencies:
     async "~0.2.10"
     colors "~0.6.1"
-    ejs "^2.5.*"
-    fs "0.0.1-security"
+    ejs "2.4.*"
+    glob "~3.2.9"
+    optimist "~0.5.2"
+
+ejs-cli@ryonakae/ejs-cli#master:
+  version "2.0.0"
+  resolved "https://codeload.github.com/ryonakae/ejs-cli/tar.gz/a546996d3b9a738b6f6664f4cc5cfd9fe2f4be07"
+  dependencies:
+    async "~0.2.10"
+    colors "~0.6.1"
+    ejs "2.4.*"
     glob "~3.2.9"
     mkdirp "^0.5.1"
     optimist "~0.5.2"
-    path "^0.12.7"
 
-ejs@^2.5.*:
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
+ejs@2.4.*:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.4.2.tgz#7057eb4812958fb731841cd9ca353343efe597b1"
 
 electron-releases@^2.1.0:
   version "2.1.0"
@@ -1989,10 +1997,6 @@ fs-extra@^4.0.1:
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
-
-fs@0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
 
 fsevents@^1.0.0:
   version "1.1.3"
@@ -3197,13 +3201,6 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
-path@^0.12.7:
-  version "0.12.7"
-  resolved "https://registry.yarnpkg.com/path/-/path-0.12.7.tgz#d4dc2a506c4ce2197eb481ebfcd5b36c0140b10f"
-  dependencies:
-    process "^0.11.1"
-    util "^0.10.3"
-
 pause-stream@0.0.11:
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/pause-stream/-/pause-stream-0.0.11.tgz#fe5a34b0cbce12b5aa6a2b403ee2e73b602f1445"
@@ -4009,7 +4006,7 @@ process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
-process@^0.11.1, process@^0.11.10:
+process@^0.11.10:
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
 
