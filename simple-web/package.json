@@ -24,7 +24,7 @@
     "@babel/core": "^7.0.0-beta.38",
     "@babel/preset-env": "^7.0.0-beta.38",
     "babel-loader": "8.0.0-beta.0",
-    "browser-sync": "^2.22.0",
+    "browser-sync": "^2.23.5",
     "chokidar-cli": "^1.2.0",
     "cpx": "^1.5.0",
     "cssnano": "^3.10.0",
@@ -34,7 +34,7 @@
     "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
-    "prettier": "^1.9.2",
+    "prettier": "^1.10.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1"
