@@ -8,7 +8,7 @@
 
 ### simple-web
 
-* HTML
+* HTML: EJS
 * JS: ES2015 (Webpack + Babel)
 * CSS: PostCSS (import, cssnext, cssnano)
 
