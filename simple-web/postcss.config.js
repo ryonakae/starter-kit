@@ -5,14 +5,6 @@ const options = {
   cssnext: {
     browsers: ['last 2 versions', 'ie > 11', 'iOS >= 11', 'Android >= 5.0'],
     cascade: false
-  },
-  cssnano: {
-    preset: 'default',
-    autoprefixer: false,
-    zindex: false,
-    discardUnused: {
-      fontFace: false
-    }
   }
 }
 
@@ -21,6 +13,6 @@ module.exports = ctx => ({
   plugins: {
     'postcss-import': options.postcssImport,
     'postcss-cssnext': options.cssnext,
-    cssnano: ctx.env === 'production' ? options.cssnano : false
+    csswring: ctx.env === 'production'
   }
 })

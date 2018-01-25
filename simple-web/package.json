@@ -2,8 +2,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "clean": "rimraf dist",
-    "server":
-      "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
+    "server": "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
     "css": "postcss 'src/styles/**/!(_)*.css' -d dist/styles",
     "copy:public": "cpx 'public/**/{*,.*}' dist -u",
     "watch:public": "chokidar 'public' -c 'yarn copy:public'",
@@ -32,8 +31,7 @@
     "browser-sync": "^2.23.5",
     "chokidar-cli": "^1.2.0",
     "cpx": "^1.5.0",
-    "cssnano": "^3.10.0",
-    "cssnano-preset-default": "^4.0.0-rc.2",
+    "csswring": "^6.0.2",
     "ejs": "^2.5.7",
     "ejs-cli": "ryonakae/ejs-cli#master",
     "eslint": "^4.16.0",
