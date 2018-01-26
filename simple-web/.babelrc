@@ -6,7 +6,7 @@
         "targets": {
           "browsers": [
             "last 2 versions",
-            "ie > 11",
+            "IE >= 11",
             "iOS >= 11",
             "Android >= 5.0"
           ]
