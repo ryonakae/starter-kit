@@ -5,7 +5,6 @@ const path = require('path')
 // common config
 const common = {
   entry: {
-    vendor: ['web-utility-js'],
     index: path.join(__dirname, 'src/scripts/index.js')
   },
   output: {
@@ -29,7 +28,9 @@ const common = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: Infinity
+      minChunks: module => {
+        return module.context && module.context.includes('node_modules')
+      }
     })
   ]
 }
