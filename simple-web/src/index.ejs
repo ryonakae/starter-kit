@@ -1,15 +1,40 @@
 <%
   var title = 'simple-web'
+  var siteName = 'simple-web'
+  var description = ''
+  var keywords = ''
+  var url = ''
+  var ogImage = ''
 -%>
 <!DOCTYPE html>
 <html lang="ja" prefix="og: http://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title><%= title %></title>
+
+  <meta name="description" content="<%= description %>">
+  <meta name="keywords" content="<%= keywords %>">
+  <meta property="og:title" content="<%= title %>">
+  <meta property="og:site_name" content="<%= siteName %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= url %>">
+  <meta property="og:description" content="<%= description %>">
+  <meta property="og:image" content="<%= ogImage %>">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="twitter:description" content="<%= description %>">
+  <meta name="twitter:image:src" content="<%= ogImage %>">
+
   <link rel="stylesheet" href="styles/index.css">
+
   <script src="scripts/vendor.js"></script>
   <script src="scripts/index.js"></script>
+  <% if (process.env.NODE_ENV === 'production') { -%>
+    <script></script>
+  <% } -%>
 </head>
 <body>
   <h1><%= title %></h1>
