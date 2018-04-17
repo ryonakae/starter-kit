@@ -4,7 +4,7 @@
     "clean": "rimraf dist",
     "server":
       "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
-    "ejs": "ejs-cli -b src '**/*.ejs' -o dist",
+    "ejs": "ejs-cli -b src '**/!(_)*.ejs' -o dist",
     "css": "postcss 'src/styles/**/!(_)*.css' -d dist/styles",
     "copy:static": "cpx 'src/static/**/{*,.*}' dist -u",
     "watch:static": "chokidar 'src/static' -c 'yarn copy:static'",
@@ -16,10 +16,9 @@
     "build:js": "NODE_ENV=production webpack",
     "format:js": "prettier-eslint 'src/**/*.js' --write",
     "format:css": "stylelint 'src/**/*.css' --fix",
-    "copy": "run-p copy:*",
     "watch": "run-p watch:* server",
-    "start": "run-s clean copy watch",
-    "build": "run-s clean copy build:*",
+    "start": "run-s clean copy:* watch",
+    "build": "run-s clean copy:* build:*",
     "format": "run-s format:*"
   },
   "dependencies": {
