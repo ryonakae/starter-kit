@@ -1,76 +1,59 @@
 const webpack = require('webpack')
-const merge = require('webpack-merge')
 const path = require('path')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 // common config
-const common = {
-  entry: {
-    index: path.join(__dirname, 'src/scripts/index.js')
-  },
-  output: {
-    filename: '[name].js',
-    path: path.join(__dirname, 'dist/scripts')
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
-  resolve: {
-    alias: {
-      '@': path.join(__dirname, 'src/scripts')
-    }
-  },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: module => {
-        return module.context && module.context.includes('node_modules')
-      }
-    })
-  ]
-}
+module.exports = (env, argv) => {
+  const IS_DEV = argv.mode === 'development'
 
-// development config
-const dev = {
-  watch: true,
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-    }),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      debug: true
-    })
-  ],
-  cache: true,
-  devtool: 'inline-source-map'
-}
-
-// production config
-const prod = {
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        drop_console: true
+  return {
+    entry: {
+      index: path.join(__dirname, 'src/scripts/index.js')
+    },
+    output: {
+      filename: '[name].js',
+      path: path.join(__dirname, 'dist/scripts')
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/
+        }
+      ]
+    },
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, 'src/scripts')
+      }
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            name: 'vendor',
+            chunks: 'initial',
+            enforce: true
+          }
+        }
       },
-      comments: false
-    }),
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin()
-  ]
+      minimizer: IS_DEV
+        ? []
+        : [
+          new UglifyJSPlugin({
+            sourceMap: true,
+            uglifyOptions: {
+              compress: {
+                warnings: false,
+                drop_console: true
+              },
+              comments: false
+            }
+          })
+        ]
+    },
+    devtool: IS_DEV ? 'inline-source-map' : 'none'
+  }
 }
-
-module.exports = merge(
-  common,
-  process.env.NODE_ENV === 'production' ? prod : dev
-)

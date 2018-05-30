@@ -1,9 +1,8 @@
 import { Utils } from 'web-utility-js'
+
 const utils = new Utils()
 
-document.addEventListener('DOMContentLoaded', () => {
-  init()
-})
+document.addEventListener('DOMContentLoaded', init, false)
 
 function init () {
   utils.init()
