@@ -1,4 +1,5 @@
-/* @import "sanitize.css"; */
+@import "sanitize.css";
+@import "_font-face.css";
 @import "_config.css";
 
 html {
@@ -6,6 +7,10 @@ html {
 }
 
 body {
+  color: var(--color-default);
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  line-height: var(--line-height);
   font-kerning: normal;
   font-feature-settings: "palt" on;
   overflow-wrap: break-word;
@@ -16,6 +21,30 @@ body {
   @media (--retina) {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: var(--line-height-title);
+}
+
+:any-link,
+.link {
+  color: inherit;
+  text-decoration: underline;
+
+  @media (hover) {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+      opacity: 0.7;
+    }
   }
 }
 
@@ -35,15 +64,4 @@ body {
 
 .transition {
   transition: all var(--duration) var(--easing);
-}
-
-.link {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: underline;
-
-  @nest body[data-device="pc"] &:hover {
-    text-decoration: none;
-    opacity: 0.7;
-  }
 }

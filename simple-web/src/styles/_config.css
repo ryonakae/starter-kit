@@ -1,4 +1,9 @@
 :root {
+  --color-default: #000;
+  --font-family: system-ui, YakuHanJPs, YakuHanJP, Hiragino, sans-serif;
+  --letter-spacing: 0.125em;
+  --line-height: 1.7;
+  --line-height-title: 1.5;
   --duration: 500ms;
   --easing: cubic-bezier(0.23, 1, 0.32, 1);
 }
