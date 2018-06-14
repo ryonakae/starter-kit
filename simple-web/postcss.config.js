@@ -2,9 +2,12 @@ const options = {
   postcssImport: {
     path: 'src/styles'
   },
-  cssnext: {
-    browsers: ['last 2 versions', 'IE >= 11', 'iOS >= 11', 'Android >= 5.0'],
-    cascade: false
+  postcssPresetEnv: {
+    stage: 2,
+    features: {
+      'custom-media-queries': true,
+      'nesting-rules': true
+    }
   }
 }
 
@@ -12,7 +15,7 @@ module.exports = ctx => ({
   map: ctx.env === 'production' ? false : ctx.options.map,
   plugins: {
     'postcss-import': options.postcssImport,
-    'postcss-cssnext': options.cssnext,
+    'postcss-preset-env': options.postcssPresetEnv,
     csswring: ctx.env === 'production'
   }
 })

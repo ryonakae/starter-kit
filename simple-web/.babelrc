@@ -3,14 +3,6 @@
     [
       "@babel/preset-env",
       {
-        "targets": {
-          "browsers": [
-            "last 2 versions",
-            "IE >= 11",
-            "iOS >= 11",
-            "Android >= 5.0"
-          ]
-        },
         "useBuiltIns": "usage",
         "modules": false
       }
