@@ -7,7 +7,6 @@ html {
 }
 
 body {
-  background-image: url("~/images/sample.png");
   color: var(--color-default);
   font-family: var(--font-family);
   letter-spacing: var(--letter-spacing);

@@ -1,5 +1,4 @@
-import '~/styles/index.css'
-import '~/fonts/YakuHanJP-Bold.woff'
+import '@/styles/index.css'
 import { Utils } from 'web-utility-js'
 
 const utils = new Utils()

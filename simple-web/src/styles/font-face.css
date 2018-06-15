@@ -1,22 +1,22 @@
 @font-face {
   font-family: YakuHanJPs;
   font-weight: normal;
-  src: url("~/fonts/YakuHanJPs-Light.woff2") format("woff2"),
-    url("~/fonts/YakuHanJPs-Light.woff") format("woff");
+  src: url("~@/fonts/YakuHanJPs-Light.woff2") format("woff2"),
+    url("~@/fonts/YakuHanJPs-Light.woff") format("woff");
 }
 
 @font-face {
   font-family: YakuHanJP;
   font-weight: normal;
-  src: url("~/fonts/YakuHanJP-DemiLight.woff2") format("woff2"),
-    url("~/fonts/YakuHanJP-DemiLight.woff") format("woff");
+  src: url("~@/fonts/YakuHanJP-DemiLight.woff2") format("woff2"),
+    url("~@/fonts/YakuHanJP-DemiLight.woff") format("woff");
 }
 
 @font-face {
   font-family: YakuHanJP;
   font-weight: bold;
-  src: url("~/fonts/YakuHanJP-Bold.woff2") format("woff2"),
-    url("~/fonts/YakuHanJP-Bold.woff") format("woff");
+  src: url("~@/fonts/YakuHanJP-Bold.woff2") format("woff2"),
+    url("~@/fonts/YakuHanJP-Bold.woff") format("woff");
 }
 
 @font-face {

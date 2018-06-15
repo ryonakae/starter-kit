@@ -19,9 +19,8 @@ module.exports = (env, argv) => {
         // fonts
         {
           test: /\.(otf|eot|ttf|woff|woff2)$/,
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 1,
             name: '[name].[ext]',
             outputPath: 'fonts/'
           }
@@ -31,9 +30,8 @@ module.exports = (env, argv) => {
           test: /\.(jpe?g|png|bmp|gif|svg)$/,
           use: [
             {
-              loader: 'url-loader',
+              loader: 'file-loader',
               options: {
-                limit: 8192,
                 name: '[name].[ext]',
                 outputPath: 'images/'
               }
@@ -68,14 +66,12 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: [
-            'style-loader',
+            { loader: 'style-loader', options: { sourceMap: true } },
             {
               loader: 'css-loader',
-              options: {
-                importLoaders: 1
-              }
+              options: { sourceMap: true, importLoaders: 1 }
             },
-            'postcss-loader'
+            { loader: 'postcss-loader', options: { sourceMap: true } }
           ]
         },
         // js
@@ -88,7 +84,7 @@ module.exports = (env, argv) => {
     },
     resolve: {
       alias: {
-        '~': path.join(__dirname, 'src')
+        '@': path.join(__dirname, 'src')
       }
     },
     optimization: {
