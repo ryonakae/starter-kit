@@ -79,6 +79,26 @@ module.exports = (env, argv) => {
           test: /\.js$/,
           loader: 'babel-loader',
           exclude: /node_modules/
+        },
+        // ejs
+        {
+          test: /\.ejs$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].html'
+              }
+            },
+            'extract-loader',
+            'html-loader',
+            {
+              loader: 'ejs-html-loader',
+              options: {
+                mode: argv.mode
+              }
+            }
+          ]
         }
       ]
     },

@@ -27,7 +27,8 @@
 
   <script src="vendor.js"></script>
   <script src="index.js"></script>
-  <% if (process.env.NODE_ENV === 'production') { -%>
+
+  <% if (mode === 'production') { -%>
     <%- include(rootPath + '_prodScript') %>
   <% } -%>
 </head>
