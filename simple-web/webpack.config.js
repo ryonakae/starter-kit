@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 // common config
@@ -107,6 +108,15 @@ module.exports = (env, argv) => {
         '@': path.join(__dirname, 'src')
       }
     },
+    plugins: [
+      new CopyWebpackPlugin([
+        {
+          from: path.join(__dirname, 'src/static'),
+          to: './',
+          ignore: ['.DS_Store', '.gitkeep']
+        }
+      ])
+    ],
     optimization: {
       splitChunks: {
         cacheGroups: {
