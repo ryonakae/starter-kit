@@ -2,14 +2,13 @@
   "license": "Apache-2.0",
   "scripts": {
     "clean": "rimraf dist",
-    "server": "browser-sync start -s dist -f dist --no-open --no-notify --no-ghost-mode",
-    "webpack:dev": "webpack --mode development --watch",
+    "webpack:dev": "webpack-serve",
     "webpack:prod": "webpack --mode production",
     "format:js": "prettier-eslint 'src/**/*.js' --write",
     "format:css": "stylelint 'src/**/*.css' --fix",
-    "dev": "npm-run-all clean --parallel webpack:dev server",
-    "build": "npm-run-all clean webpack:prod",
-    "format": "npm-run-all format:*"
+    "dev": "run-s clean webpack:dev",
+    "build": "run-s clean webpack:prod",
+    "format": "run-s format:*"
   },
   "dependencies": {
     "sanitize.css": "^5.0.0",
@@ -19,7 +18,6 @@
     "@babel/core": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.51",
     "babel-loader": "^8.0.0-beta",
-    "browser-sync": "^2.24.4",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
     "csswring": "^6.0.3",
@@ -48,6 +46,7 @@
     "stylelint-config-standard": "^18.2.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.6"
+    "webpack-cli": "^3.0.6",
+    "webpack-serve": "^1.0.4"
   }
 }
