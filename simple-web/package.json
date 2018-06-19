@@ -2,8 +2,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "clean": "rimraf dist",
-    "webpack:dev": "webpack-serve",
-    "webpack:prod": "webpack --mode production",
+    "webpack:dev": "webpack-serve --port 3000",
+    "webpack:prod": "webpack",
     "format:js": "prettier-eslint 'src/**/*.js' --write",
     "format:css": "stylelint 'src/**/*.css' --fix",
     "dev": "run-s clean webpack:dev",
