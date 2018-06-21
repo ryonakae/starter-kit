@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
@@ -8,8 +10,9 @@ const IS_DEV = MODE === 'development'
 
 module.exports = {
   mode: MODE,
+  context: path.join(__dirname, 'src'),
   entry: {
-    index: path.join(__dirname, 'src/scripts/index.js')
+    index: './scripts/index.js'
   },
   output: {
     filename: '[name].js',
@@ -22,8 +25,7 @@ module.exports = {
         test: /\.(otf|eot|ttf|woff|woff2)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-          outputPath: 'fonts/'
+          name: '[path][name].[ext]'
         }
       },
       // images
@@ -33,8 +35,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images/'
+              name: '[path][name].[ext]'
             }
           },
           {
@@ -67,12 +68,20 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader', options: { sourceMap: true } },
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true, importLoaders: 1 }
+            options: {
+              sourceMap: true,
+              importLoaders: 1
+            }
           },
-          { loader: 'postcss-loader', options: { sourceMap: true } }
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          }
         ]
       },
       // js
@@ -85,13 +94,6 @@ module.exports = {
       {
         test: /\.ejs$/,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].html'
-            }
-          },
-          'extract-loader',
           'html-loader',
           {
             loader: 'ejs-html-loader',
@@ -109,6 +111,13 @@ module.exports = {
     }
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './index.ejs'
+    }),
+    new MiniCssExtractPlugin({
+      filename: '[name].css'
+    }),
     new CopyWebpackPlugin([
       {
         from: path.join(__dirname, 'src/static'),

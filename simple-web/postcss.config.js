@@ -11,11 +11,13 @@ const options = {
   }
 }
 
+const ENV = process.env.NODE_ENV
+
 module.exports = ctx => ({
-  map: ctx.env === 'production' ? false : ctx.options.map,
+  map: ENV === 'production' ? false : ctx.options.map,
   plugins: {
     'postcss-import': options.postcssImport,
     'postcss-preset-env': options.postcssPresetEnv,
-    csswring: ctx.env === 'production'
+    csswring: ENV === 'production'
   }
 })

@@ -1,4 +1,3 @@
-import '@/index.ejs'
 import '@/styles/index.css'
 import { Utils } from 'web-utility-js'
 
