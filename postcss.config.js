@@ -4,7 +4,7 @@ module.exports = (ctx) => ({
   map: ENV === 'production' ? false : ctx.options.map,
   plugins: {
     'postcss-import': {
-      path: 'src/styles'
+      path: 'src/assets/styles'
     },
     'postcss-preset-env': {
       stage: 2,

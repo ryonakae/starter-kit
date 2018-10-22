@@ -1,4 +1,4 @@
-import '~/assets/styles/style.css'
+import '@/assets/styles/style.css'
 import imagesLoaded from 'imagesloaded'
 
 document.addEventListener(
