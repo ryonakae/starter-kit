@@ -1,29 +1,21 @@
 # Starter Kit
 
-* Simple and lightweight boilerplates
-* Launch local server and live reload
-* Code format by Prettier
-  * JS: prettier-eslint (eslint-config-standard)
-  * CSS: prettier-stylelint (stylelint-config-standard)
+- Simple and lightweight boilerplates
+- Launch local server and live reload
+- Automatically code format
 
 ## Technologies
 
 ### simple-web
 
-* HTML: EJS
-* JS: ES2015 (Webpack + Babel)
-* CSS: PostCSS (import, cssnext, cssnano)
-
-### spa-vue
-
-* Vue (Webpack + Babel + vue-loader)
-  * JS: ES2015
-  * CSS: PostCSS (import, cssnext, cssnano)
+- HTML: EJS
+- JS: ES2015 (Webpack + Babel)
+- CSS: PostCSS (import, cssnext, cssnano)
 
 ## Install
 
 ```
-$ sh install.sh boilerplate-name directory-you-want-to-copy
+$ sh install.sh directory-you-want-to-copy
 ```
 
 ## Usage
