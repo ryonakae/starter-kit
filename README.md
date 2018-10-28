@@ -1,16 +1,22 @@
 # Starter Kit
 
-- Simple and lightweight boilerplates
-- Launch local server and live reload
+## Overview
+
+- Simple and lightweight boilerplate of website
+- Launch local server and hot reload
 - Automatically code format
 
-## Technologies
-
-### simple-web
+## Features
 
 - HTML: EJS
 - JS: ES2015 (Webpack + Babel)
-- CSS: PostCSS (import, cssnext, cssnano)
+- CSS: PostCSS
+  - postcss-import
+  - postcss-preset-env
+  - csswring
+- Linter and formatter:
+  - ESLint: Based on eslint-config-standard, and Prettier
+  - stylelint: Based on stylelint-config-standard, and Prettier
 
 ## Install
 
@@ -29,17 +35,12 @@ $ yarn install
 ### Develop
 
 ```
-$ yarn start
+$ yarn dev
+$ open http://localhost:8080/
 ```
 
 ### Production build
 
 ```
 $ yarn build
-```
-
-### Format
-
-```
-$ yarn format
 ```
