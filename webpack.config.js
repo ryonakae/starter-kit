@@ -67,7 +67,7 @@ module.exports = {
       },
       // fonts
       {
-        test: /\.(eot|otf|ttf|woff?2)$/,
+        test: /\.(otf|eot|ttf|woff|woff2)$/,
         loader: 'file-loader',
         options: {
           name: '[path][name].[ext]'
