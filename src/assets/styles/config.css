@@ -5,7 +5,9 @@
 
   /* typography */
   --fontSize: 1.6rem;
-  --fontFamily: system-ui, YakuHanJPs, YakuHanJP, sans-serif;
+  --fontFamily: /* system-ui */ -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, YakuHanJPs,
+    YakuHanJP, sans-serif;
   --letterSpacing: initial;
   --lineHeight: 1.7;
   --lineHeight-title: 1.4;
