@@ -26,5 +26,5 @@
 <script src="<%= script %>"></script>
 
 <% if (process.env.NODE_ENV === 'production') { -%>
-<%- include(rootPath + '_prodScript') -%>
+<%- include('_prodScript') -%>
 <% } -%>
