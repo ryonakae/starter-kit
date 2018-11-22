@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const mozjpeg = require('imagemin-mozjpeg')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const MODE = process.env.NODE_ENV === void 0 ? 'development' : 'production'
 const DEV_MODE = MODE === 'development'
@@ -132,14 +132,14 @@ module.exports = {
     minimizer: DEV_MODE
       ? []
       : [
-          new UglifyJSPlugin({
-            sourceMap: true,
-            uglifyOptions: {
+          new TerserPlugin({
+            parallel: true,
+            sourceMap: false,
+            terserOptions: {
+              warnings: false,
               compress: {
-                warnings: false,
                 drop_console: true
-              },
-              comments: false
+              }
             }
           })
         ]
